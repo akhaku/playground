@@ -1,4 +1,4 @@
-const app = require('../lib/server').default;
+const app = require('app/server').default;
 
 const request = require('supertest');
 

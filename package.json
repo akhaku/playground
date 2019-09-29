@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node lib/server/index.js",
     "clean": "rm -rf lib",
-    "dev": "babel src -w -d lib & nodemon lib/server/index.js",
-    "build": "babel src --out-dir lib",
+    "dev": "babel src -w -d lib & nodemon lib/server/index.js && npm run symlink",
+    "build": "babel src --out-dir lib && npm run symlink",
     "test": "mocha --exit test/*.test.js",
+    "symlink": "node -e \"var s='../lib',d='node_modules/app',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",
     "postinstall": "npm run build"
   },
   "author": "Ammar Khaku <ammar.khaku@gmail.com>",
