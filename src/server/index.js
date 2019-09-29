@@ -1,5 +1,8 @@
 import express from 'express';
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+
+import App from '../shared/app';
 
 const app = express();
 const port = process.env.PORT || 3000;
