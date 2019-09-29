@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.set('views', './src/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
   //ReactDOMServer.renderToString(<App />);
