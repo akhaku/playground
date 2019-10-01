@@ -1,3 +1,10 @@
 {
-   "presets": ["@babel/preset-env", "@babel/preset-react"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "env": {
+    "node": {
+      "plugins": [
+        ["babel-plugin-transform-require-ignore", {"extensions": [".less"]}]
+      ]
+    }
+  }
 }

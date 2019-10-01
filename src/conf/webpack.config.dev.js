@@ -21,6 +21,7 @@ _.each(WebpackConfig.entry, function(n, key) {
   ].concat(WebpackConfig.entry[key]);
 });
 
+WebpackConfig.mode = 'development';
 // work around bug in...MemoryFileSystem? Doesn't seem to be allowing paths containing '.'
 WebpackConfig.output.publicPath = Config.baseJsUrl;
 
@@ -31,4 +32,10 @@ WebpackConfig.plugins = WebpackConfig.plugins.concat([
   new webpack.NoEmitOnErrorsPlugin(),
 ]);
 
+WebpackConfig.module.rules[0].use[0].options = {
+  hmr: true,
+};
+
+console.log(WebpackConfig);
+console.log(JSON.stringify(WebpackConfig.module.rules));
 module.exports = WebpackConfig;

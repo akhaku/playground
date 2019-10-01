@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
 
@@ -17,4 +16,8 @@ var server = new WebpackDevServer(Webpack(WebpackConfig), {
   },
 });
 
-server.listen(Config.webpackDevServerPort, Config.webpackDevServerHost, _.noop);
+server.listen(Config.webpackDevServerPort, Config.webpackDevServerHost, err => {
+  if (err) {
+    console.error(err);
+  }
+});
