@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import App from 'app/shared/app';
-import Config from 'app/conf/Config';
+import Config from '../../conf/Config';
 
 const app = express();
 const port = process.env.PORT || 3000;

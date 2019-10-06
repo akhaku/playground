@@ -7,10 +7,13 @@ module.exports = {
     app: ['./src/client/entry'],
   },
   output: {
-    path: path.resolve(__dirname, '../../lib/static/js'),
+    path: path.resolve(__dirname, '../lib/static/js'),
     filename: '[name].js',
   },
   resolve: {
+    alias: {
+      app: path.resolve(__dirname, '../src'),
+    },
     extensions: ['.jsx', '.js'],
   },
   mode: 'production',

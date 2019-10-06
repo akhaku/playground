@@ -3,12 +3,12 @@
  * Webpack config for local development. Supports hotloading. Built on top of the
  * production webpack config.
  */
-var _ = require('lodash');
-var webpack = require('webpack');
+const _ = require('lodash');
+const webpack = require('webpack');
 
-var Config = require('./Config');
-var ProdConfig = require('./webpack.config.production');
-var WebpackConfig = ProdConfig;
+const Config = require('./Config');
+const ProdConfig = require('./webpack.config.production');
+const WebpackConfig = ProdConfig;
 
 WebpackConfig.devtool = 'inline-source-map';
 
@@ -36,6 +36,4 @@ WebpackConfig.module.rules[0].use[0].options = {
   hmr: true,
 };
 
-console.log(WebpackConfig);
-console.log(JSON.stringify(WebpackConfig.module.rules));
 module.exports = WebpackConfig;

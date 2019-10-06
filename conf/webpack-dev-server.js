@@ -1,10 +1,10 @@
-import WebpackDevServer from 'webpack-dev-server';
-import Webpack from 'webpack';
+const WebpackDevServer = require('webpack-dev-server');
+const Webpack = require('webpack');
 
-import Config from 'app/conf/Config';
-import WebpackConfig from 'app/conf/webpack.config.dev';
+const Config = require('./Config');
+const WebpackConfig = require('./webpack.config.dev');
 
-var server = new WebpackDevServer(Webpack(WebpackConfig), {
+const server = new WebpackDevServer(Webpack(WebpackConfig), {
   publicPath: WebpackConfig.output.publicPath,
   sockPort: Config.webpackDevServerPort,
   hot: true,
