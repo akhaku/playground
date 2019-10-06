@@ -3,7 +3,13 @@
   "env": {
     "node": {
       "plugins": [
-        ["babel-plugin-transform-require-ignore", {"extensions": [".less"]}]
+        ["babel-plugin-transform-require-ignore", {"extensions": [".less"]}],
+        ["module-resolver", {
+          "root": ["./lib/"],
+          "alias": {
+            "app": "./lib"
+          }
+        }]
       ]
     }
   }
