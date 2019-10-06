@@ -6,14 +6,14 @@
   "scripts": {
     "start": "node lib/server/index.js",
     "clean": "rm -rf lib",
-    "copy-less": "rsync -rv --include='*/' --include='*.less' --exclude='*' --prune-empty-dirs src/ lib",
     "dev": "npm run symlink && npm run babel && npm run webpack-dev-server & BABEL_ENV=node babel src -w -d lib & nodemon lib/server/index.js",
     "babel": "BABEL_ENV=node babel src --out-dir lib",
     "test": "mocha --exit test/*.test.js",
     "webpack-dev-server": "node conf/webpack-dev-server.js",
     "webpack": "webpack --config conf/webpack.config.production.js",
     "symlink": "node -e \"var s='../lib',d='node_modules/app',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",
-    "postinstall": "npm run babel && npm run symlink && npm run copy-less &&  npm run webpack"
+    "gcp-build": "npm run postinstall",
+    "postinstall": "npm run babel && npm run symlink && npm run webpack"
   },
   "author": "Ammar Khaku <ammar.khaku@gmail.com>",
   "license": "ISC",
