@@ -1,3 +1,4 @@
+/* eslint-env node */
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -6,7 +7,6 @@ import App from 'app/shared/app';
 import Config from '../../conf/Config';
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.set('views', './src/views');
 app.set('view engine', 'pug');
@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(Config.appPort, () => {
+  console.log(`Listening on port ${Config.appPort}`);
 });
 
 export default app;

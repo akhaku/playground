@@ -22,10 +22,8 @@ module.exports = {
       test: /\.less$/,
       use: [{
         loader: MiniCssExtractPlugin.loader,
-      },
-        'css-loader',
-        'less-loader',
-      ]
+      }, 'css-loader', 'less-loader',
+      ],
     }, {
       test: /\.jsx?$/,
 
@@ -35,13 +33,13 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
-      }
+      },
     }],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-    })
+    }),
   ],
 };
