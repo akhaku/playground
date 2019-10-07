@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 
 import App from 'app/shared/app';
 import Config from '../../conf/Config';
+import Cards from 'app/shared/data/cards';
 
 const app = express();
 
@@ -20,6 +21,17 @@ app.get('/', (req, res) => {
     content,
     baseCssUrl: Config.baseCssUrl,
     baseJsUrl: Config.baseJsUrl,
+  });
+});
+
+app.get('/flashcards/', (req, res) => {
+  const params = {view: 'flashcards', cards: Cards};
+  const content = ReactDOMServer.renderToString(<App {...params}/>);
+  res.render('index', {
+    content,
+    baseCssUrl: Config.baseCssUrl,
+    baseJsUrl: Config.baseJsUrl,
+    params,
   });
 });
 

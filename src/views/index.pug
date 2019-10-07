@@ -10,4 +10,6 @@ html
 
   body
     #app!= content
+    script.
+      window.params = !{JSON.stringify(params).replace(/<\//g, "<\\/")}
     script(src=baseJsUrl + '/app.js', defer)
