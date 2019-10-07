@@ -13,7 +13,7 @@
     "webpack-dev-server": "node conf/webpack-dev-server.js",
     "webpack": "webpack --config conf/webpack.config.production.js",
     "gcp-build": "npm run postinstall",
-    "postinstall": "npm run babel && npm run webpack"
+    "postinstall": "npm run clean && npm run babel && npm run webpack"
   },
   "author": "Ammar Khaku <ammar.khaku@gmail.com>",
   "license": "ISC",
