@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './flashcard.less'
+
 export default class Flashcard extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ export default class Flashcard extends React.Component {
 
   renderFront() {
     return (
-      <div>
+      <div class="Container-Flashcard">
         <p>{this.props.card.front}</p>
         <button onClick={() => this.setState({front: false})}>Flip</button>
       </div>
@@ -20,7 +22,7 @@ export default class Flashcard extends React.Component {
   renderBack() {
     const lines = this.props.card.back.map((line, i) => <p key={i}>{line}</p>);
     return (
-      <div>
+      <div class="Container-Flashcard">
         {lines}
         <button onClick={() => {
           this.setState({front: true});
