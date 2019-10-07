@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
     content,
     baseCssUrl: Config.baseCssUrl,
     baseJsUrl: Config.baseJsUrl,
+    params: {},
   });
 });
 
