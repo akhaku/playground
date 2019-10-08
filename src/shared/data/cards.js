@@ -16,6 +16,9 @@ const cards = [{
 }, {
   front: '正',
   back: ['zhèng'],
+}, {
+  front: '实',
+  back: ['实  际 上 (shí jì shàng)', '诚实 (chéng shí)'],
 }];
 
 export default cards;
