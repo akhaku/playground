@@ -8,26 +8,40 @@ export default class Flashcard extends React.Component {
     this.state = {
       front: true,
     };
+    this.flipCallback = () => this.setState({front: !this.state.front});
   }
 
   renderFront() {
     return (
-      <div class="Container-Flashcard">
-        <p>{this.props.card.front}</p>
-        <button onClick={() => this.setState({front: false})}>Flip</button>
+      <div className="Container-Flashcard">
+        <p className="Text-line">{this.props.card.front}</p>
+        <div className="Container-Button">
+          <button onClick={this.props.previousCard}>←</button>
+          <button onClick={this.flipCallback}>⇄</button>
+          <button onClick={this.props.nextCard}>→</button>
+        </div>
       </div>
     );
   }
 
   renderBack() {
-    const lines = this.props.card.back.map((line, i) => <p key={i}>{line}</p>);
+    const lines = this.props.card.back.map((line, i) => <p className="Text-line" key={i}>{line}</p>);
     return (
-      <div class="Container-Flashcard">
-        {lines}
-        <button onClick={() => {
-          this.setState({front: true});
-          this.props.nextCard();
-        }}>Next</button>
+      <div className="Container-Flashcard">
+        <div>
+          {lines}
+        </div>
+        <div className="Container-Button">
+          <button className="Button-cross" onClick={() => {
+            this.setState({front: true});
+            this.props.nextCard();
+          }}>✖</button>
+          <button onClick={this.flipCallback}>⇄</button>
+          <button className="Button-check" onClick={() => {
+            this.setState({front: true});
+            this.props.nextCard();
+          }}>✓</button>
+        </div>
       </div>
     );
   }

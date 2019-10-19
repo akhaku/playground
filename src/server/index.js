@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/flashcards/', (req, res) => {
-  const params = {view: 'flashcards', cards: Cards};
+  const shuffled = shuffle(Cards);
+  const params = {view: 'flashcards', cards: shuffled};
   const content = ReactDOMServer.renderToString(<App {...params}/>);
   res.render('index', {
     content,
@@ -39,5 +40,16 @@ app.get('/flashcards/', (req, res) => {
 app.listen(Config.appPort, () => {
   console.log(`Listening on port ${Config.appPort}`);
 });
+
+function shuffle(a) {
+  let j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+}
 
 export default app;

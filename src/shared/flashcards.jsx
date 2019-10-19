@@ -9,20 +9,26 @@ export default class Flashcards extends React.Component {
     this.state = {
       cardNumber: 0,
     }
+    const numCards = this.props.cards.length;
 
     this.nextCard = () => {
-      const newCardNumber = (this.state.cardNumber + 1) % this.props.cards.length;
+      const newCardNumber = (this.state.cardNumber + 1) % numCards;
+      this.setState({cardNumber: newCardNumber});
+    };
+
+    this.previousCard = () => {
+      const newCardNumber = (this.state.cardNumber - 1 + numCards) % numCards;
       this.setState({cardNumber: newCardNumber});
     };
   }
 
   render() {
     return (
-      <div class="Container-Flashcards">
-        <h1>Flashcards</h1>
+      <div className="Container-Flashcards">
         <Flashcard
           card={this.props.cards[this.state.cardNumber]}
           nextCard={this.nextCard}
+          previousCard={this.previousCard}
         />
       </div>
     );

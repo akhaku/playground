@@ -1,6 +1,6 @@
 const cards = [{
   front: '声',
-  back: ['shēng'],
+  back: ['shēng yīn', 'shēng diào'],
 }, {
   front: '情',
   back: ['qíng'],
@@ -18,7 +18,7 @@ const cards = [{
   back: ['zhèng'],
 }, {
   front: '实',
-  back: ['实  际 上 (shí jì shàng)', '诚实 (chéng shí)'],
+  back: ['实  际 上 (shí jì shàng)', '诚实 (chéng shí)', '事实 (shì shí)'],
 }];
 
 export default cards;
