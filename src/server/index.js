@@ -6,6 +6,7 @@ import ReactDOMServer from 'react-dom/server';
 import App from 'app/shared/app';
 import Config from '../../conf/Config';
 import Cards from 'app/shared/data/cards';
+import Routes from 'app/shared/routes';
 
 const app = express();
 
@@ -25,10 +26,12 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/flashcards/', (req, res) => {
+app.get(Routes.flashcards + '*', (req, res) => {
   const shuffled = shuffle(Cards);
-  const params = {view: 'flashcards', cards: shuffled};
+  // params are also passed through to the client side react component as props
+  const params = {view: 'flashcards', cards: shuffled, path: decodeURIComponent(req.originalUrl)};
   const content = ReactDOMServer.renderToString(<App {...params}/>);
+  console.log(req.originalUrl);
   res.render('index', {
     content,
     baseCssUrl: Config.baseCssUrl,

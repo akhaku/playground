@@ -2,51 +2,30 @@ import React from 'react';
 
 import './flashcard.less'
 
-export default class Flashcard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      front: true,
-    };
-    this.flipCallback = () => this.setState({front: !this.state.front});
-  }
-
-  renderFront() {
-    return (
-      <div className="Container-Flashcard">
-        <p className="Text-line">{this.props.card.front}</p>
-        <div className="Container-Button">
-          <button onClick={this.props.previousCard}>←</button>
-          <button onClick={this.flipCallback}>⇄</button>
-          <button onClick={this.props.nextCard}>→</button>
-        </div>
+export default function(props) {
+  const front = () => (
+    <div className="Container-Flashcard">
+      <p className="Text-line">{props.card.front}</p>
+      <div className="Container-Button">
+        <button onClick={props.previousCard}>←</button>
+        <button onClick={props.flipCard}>⇄</button>
+        <button onClick={props.nextCard}>→</button>
       </div>
-    );
-  }
+    </div>
+  );
 
-  renderBack() {
-    const lines = this.props.card.back.map((line, i) => <p className="Text-line" key={i}>{line}</p>);
-    return (
+  const back = () => (
       <div className="Container-Flashcard">
         <div>
-          {lines}
+          {props.card.back.map((line, i) => <p className="Text-line" key={i}>{line}</p>)}
         </div>
         <div className="Container-Button">
-          <button className="Button-cross" onClick={() => {
-            this.setState({front: true});
-            this.props.nextCard();
-          }}>✖</button>
-          <button onClick={this.flipCallback}>⇄</button>
-          <button className="Button-check" onClick={() => {
-            this.setState({front: true});
-            this.props.nextCard();
-          }}>✓</button>
+          <button className="Button-cross" onClick={props.nextCard}>✖</button>
+          <button onClick={props.flipCard}>⇄</button>
+          <button className="Button-check" onClick={props.nextCard}>✓</button>
         </div>
       </div>
-    );
-  }
+  )
 
-  render() {
-    return this.state.front ? this.renderFront() : this.renderBack();
-  }
+  return props.front ? front() : back();
 }
