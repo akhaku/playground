@@ -31,13 +31,16 @@ app.get(Routes.flashcards + '*', (req, res) => {
   // params are also passed through to the client side react component as props
   const params = {view: 'flashcards', cards: shuffled, path: decodeURIComponent(req.originalUrl)};
   const content = ReactDOMServer.renderToString(<App {...params}/>);
-  console.log(req.originalUrl);
   res.render('index', {
     content,
     baseCssUrl: Config.baseCssUrl,
     baseJsUrl: Config.baseJsUrl,
     params,
   });
+});
+
+app.get(Routes.flashcards.substring(0, Routes.flashcards.length - 1), (req, res) => {
+  res.redirect(301, '/flashcards/');
 });
 
 app.listen(Config.appPort, () => {
