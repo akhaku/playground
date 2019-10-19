@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Flashcards from 'app/shared/flashcards';
 
 import './app.less';
 
-export default function({cards, history, path, view}) {
+function App({cards, history, path, view}) {
   return view === 'flashcards' ? (
     <Flashcards
       cards={cards}
@@ -11,6 +12,15 @@ export default function({cards, history, path, view}) {
       history={history}
     />
   ) : (
-    <h1>Hello4 world from react</h1>
+    <h1>{'Hello world from react'}</h1>
   );
 }
+
+App.propTypes = {
+  cards: PropTypes.array.isRequired,
+  history: PropTypes.object,
+  path: PropTypes.string.isRequired,
+  view: PropTypes.string.isRequired,
+};
+
+export default App;

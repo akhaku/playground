@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node lib/server/index.js",
     "clean": "rm -rf lib",
-    "lint": "eslint src conf",
+    "lint": "eslint --ext .jsx --ext .js src conf",
     "dev": "npm run babel && npm run webpack-dev-server & BABEL_ENV=node babel src -w -d lib & nodemon lib/server/index.js",
     "babel": "BABEL_ENV=node babel src --out-dir lib",
     "test": "mocha --exit test/*.test.js",

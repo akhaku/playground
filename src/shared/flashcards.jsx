@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Flashcard from 'app/shared/flashcard';
 import Routes from 'app/shared/routes';
@@ -10,15 +11,15 @@ export default class Flashcards extends React.Component {
     this.state = {
       cardNumber: findCardNumber(this.props.path, this.props.cards),
       front: true,
-    }
+    };
     const numCards = this.props.cards.length;
     this.historyHandler = this.props.history
-      && this.props.history.listen((location, action) => {
+      && this.props.history.listen(location => {
         this.setState({
           cardNumber: findCardNumber(location.pathname, this.props.cards),
           front: true,
         });
-    });
+      });
     this.nextCard = () => {
       const newCardNumber = (this.state.cardNumber + 1) % numCards;
       this.props.history.push(`${Routes.flashcards}${this.props.cards[newCardNumber].front}`);
@@ -46,12 +47,18 @@ export default class Flashcards extends React.Component {
   }
 }
 
+Flashcards.propTypes = {
+  cards: PropTypes.array.isRequired,
+  history: PropTypes.object,
+  path: PropTypes.string.isRequired,
+};
+
 function findCardNumber(path, cards) {
   let pathSuffix = path.substring(Routes.flashcards.length);
   if (pathSuffix.endsWith('/')) {
     pathSuffix = pathSuffix.substring(0, pathSuffix.length - 1);
   }
-  if (!!pathSuffix) {
+  if (pathSuffix) {
     for (let i = 0; i < cards.length; i++) {
       if (pathSuffix === cards[i].front) {
         return i;
