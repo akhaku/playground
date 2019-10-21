@@ -5,6 +5,10 @@ const Config = {
   appPort: process.env.PORT || 3000,
   baseJsPath: '/static/js',
   baseImagePath: '/static/img',
+  googleClientId: process.env.GOOGLE_CLIENT_ID,
+  googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  cookieSecret: process.env.COOKIE_SECRET,
+  authTokenSecret: process.env.AUTH_TOKEN_SECRET,
 };
 
 Config.baseJsUrl = Config.baseJsPath;
