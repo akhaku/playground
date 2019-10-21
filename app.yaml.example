@@ -2,5 +2,6 @@ runtime: nodejs10
 env_variables:
   GOOGLE_CLIENT_ID: "myclientid"
   GOOGLE_CLIENT_SECRET: "myclientsecret"
+  GOOGLE_REDIRECT_URI: "https://playground.akhaku.com/googleoauth"
   COOKIE_SECRET: "mycookiesecret"
   AUTH_TOKEN_SECRET: "myauthtokensecret"

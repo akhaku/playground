@@ -7,6 +7,7 @@ const Config = {
   baseImagePath: '/static/img',
   googleClientId: process.env.GOOGLE_CLIENT_ID,
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  googleRedirectUri: process.env.GOOGLE_REDIRECT_URI,
   cookieSecret: process.env.COOKIE_SECRET,
   authTokenSecret: process.env.AUTH_TOKEN_SECRET,
 };

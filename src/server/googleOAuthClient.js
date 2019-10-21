@@ -9,7 +9,7 @@ const getClient = () => {
     client = new google.auth.OAuth2(
           Config.googleClientId,
           Config.googleClientSecret,
-          'http://localhost:3000/googleoauth');
+          Config.googleRedirectUri);
   }
   return client;
 };
