@@ -23,7 +23,7 @@
     "express-session": "^1.17.0",
     "googleapis": "^44.0.0",
     "history": "^4.10.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.15",
     "pug": "^3.0.1",
     "react": "^16.10.1",
