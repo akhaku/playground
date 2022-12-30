@@ -45,7 +45,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.2",
     "react-hot": "0.0.1",
     "react-hot-loader": "^4.12.14",
